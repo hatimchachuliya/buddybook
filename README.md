@@ -1,2 +1,2 @@
 # buddybook
-online public directory or social network that helps people to exchange post,latest updates  images etc
+online public directory or social network that helps people to exchange post,latest updates  images etc (project currently under development)
