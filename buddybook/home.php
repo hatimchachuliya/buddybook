@@ -37,6 +37,14 @@ $educationrow=mysql_fetch_assoc($educationresult);
 $bdayrow=mysql_fetch_assoc($bdayresult);
 $workrow=mysql_fetch_assoc($workresult);
 
+if(isset($_POST["post"]))
+{
+	$date = date('Y-m-d');
+	$postquery="INSERT INTO postdetails (email,postupdate,time) VALUES('$_SESSION[email]','$_POST[posttext]',now())";
+	mysql_query($postquery);
+	
+}
+
 }
 else{
 	header("Location:signup.php");
@@ -93,7 +101,10 @@ void 0===c?d&&"get"in d&&null!==(e=d.get(a,b))?e:(e=n.find.attr(a,b),null==e?voi
 echo'<img src="'.$profilerow["profilepics"].'" width="30px" height="30px" />';
  echo " ".$bdayrow["firstname"];?></a></th>
 
- <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="glyphicon glyphicon-globe"></span></th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="glyphicon glyphicon-user"></span></th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="glyphicon glyphicon-wrench"></span></th></tr></table></div>
+ <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="glyphicon glyphicon-globe"></span></th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="glyphicon glyphicon-user"></span></th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="glyphicon glyphicon-wrench"></th>
+ <th><form method="post"><button type="submit" name="logout" class="btn btn-warning">logout</button></form></th>
+ </tr></table></div>
+ 
 </div>
 <div class="container">
 <div class="row">
@@ -102,7 +113,7 @@ echo'<img src="'.$profilerow["profilepics"].'" width="30px" height="30px" />';
 <ul>
 <li>home</li>
 <li><span class="glyphicon glyphicon-envelope"></span> messages</li>
-<a href="edit.php"><li> <span class="glyphicon glyphicon-pencil"></span> edit profile</li>
+<a href="edit.php"><li> <span class="glyphicon glyphicon-pencil"></span> edit profile</li></a>
 </ul>
 
 </div>
@@ -110,19 +121,49 @@ echo'<img src="'.$profilerow["profilepics"].'" width="30px" height="30px" />';
 <br/>
 <div class="panel panel-default">
   <div class="panel-body">
-    <form method="post" action="profile.php">
+    <form method="post" action="home.php">
 	<textarea rows="4" cols="50"  class="form-control" placeholder="What's tickling inside ur brain !" name="posttext">
 	</textarea>
   </div>
   <div class="panel-footer"><button type="submit" name="post"class="btn btn-primary">Post</button></div>
+ 
 </form>
   </div>
-  <div class="panel panel-default">
-  <div class="panel-body">
-    <img src="" height="40px" width="40px"/>
-  </div>
-  <div class="panel-footer"><button data-toggle="button" aria-pressed="false" autocomplete="off" type="submit" name="like"class="btn btn-primary">like <span class="glyphicon glyphicon-thumbs-up"></span></button></div>
-</div>
+   <?php
+  $post_query="SELECT firstname,lastname,postupdate,time,profilepics FROM logindetails AS ld INNER JOIN postdetails AS pd ON ld.email=pd.email INNER join profilepictures AS pp ON ld.email=pp.email ORDER BY time DESC";
+  $result_query=mysql_query($post_query);
+  $num_rows = mysql_num_rows($result_query);
+  
+	 
+  
+	/*echo'<div class="panel panel-default">';
+	echo'<div class="panel-body">';
+    echo'<img src="'.$query_row["profilepics"].'" height="40px" width="40px"/>'.$query_row["firstname"]." ".$query_row["lastname"];
+	echo"<br />br />";
+	echo $query_row["postupdate"];
+	echo"<br />br />";
+	echo $query_row["time"];
+	echo'</div>';
+	echo'<div class="panel-footer"><button data-toggle="button" aria-pressed="false" autocomplete="off" type="submit" name="like"class="btn btn-primary">like <span class="glyphicon glyphicon-thumbs-up"></span></button>';
+	echo'</div>';
+	echo'</div>';*/
+	
+	while( $query_row=mysql_fetch_assoc($result_query))
+	{
+		echo'<img src="'.$query_row["profilepics"].'" height="40px" width="40px"/>'." ".$query_row["firstname"]." ".$query_row["lastname"];
+	echo"<br /> <br />";
+	echo $query_row["postupdate"];
+	echo"<br /><br />";
+	echo $query_row["time"];
+	echo"<br /><br />";
+	
+	}
+	
+	
+  
+  
+  ?>
+  
 </div>
 </div>
 
