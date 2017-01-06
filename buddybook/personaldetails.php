@@ -50,6 +50,7 @@ personal details
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
+
 <script>
 
 /*! jQuery v2.1.4 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
@@ -61,7 +62,6 @@ void 0===c?d&&"get"in d&&null!==(e=d.get(a,b))?e:(e=n.find.attr(a,b),null==e?voi
 
 
 </script>
-
 <link rel="stylesheet" type="text/css" href="personalcss1.css">
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------ -->
@@ -80,18 +80,20 @@ void 0===c?d&&"get"in d&&null!==(e=d.get(a,b))?e:(e=n.find.attr(a,b),null==e?voi
   <div class="form-group">
   <div id="box_title"><span class="glyphicon glyphicon-home"></span> <strong>Here you can find me </strong></div>
    
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder=" your hometown" name="hometown">
+    <input type="text" class="form-control" id="exampleInputEmail1"  placeholder=" your hometown" name="hometown">
   </div>
   <div class="form-group"> 
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="current city" name="currentcity">
+    <input type="text" class="form-control" id="exampleInputPassword1"  placeholder="current city" name="currentcity">
   </div>
   
-  <button type="submit" class="btn btn-primary btn-lg btn-block" name="saveit">save and continue</button>
+  <button type="submit" id="sandc"  class="btn btn-primary btn-lg btn-block" name="saveit">save and continue</button>
 </form>
 </div>
 </div>
 </div>
 </div>
 </div>
+<script type="text/javascript" src="query.js"></script>
+<script type="text/javascript" src="profiledetails_query.js"></script>
 </body>
 </html>
