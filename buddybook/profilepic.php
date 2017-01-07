@@ -37,6 +37,9 @@ if(isset($_POST['submit'])){
     }
 $imagequery="INSERT INTO profilepictures (email,profilepics) VALUES('$_SESSION[email]','$imageuploaded') ";
 	$result=mysql_query($imagequery);
+	
+	$imagequery="INSERT INTO uploadedimages (email,images) VALUES('$_SESSION[email]','$imageuploaded') ";
+	$result=mysql_query($imagequery);
 	}
 
 
@@ -99,16 +102,18 @@ void 0===c?d&&"get"in d&&null!==(e=d.get(a,b))?e:(e=n.find.attr(a,b),null==e?voi
     <p class="help-block">upload your photo</p>
   </div>
   
-  <button type="submit" name="submit"class="btn btn-info">upload</button>
+  <button type="submit" name="submit"class="btn btn-danger btn-lg" id="upload" disabled="disabled">upload</button>
   <br />
   </form>
   <br />
   <form method="post" >
-  <button type="submit" name="viewprofile"class="btn btn-success btn-lg btn-block">continue</button>
+  <button type="submit" name="viewprofile"class="btn btn-success btn-lg btn-block"  id="continue">continue</button>
   </form>
 </div>
 </div>
 </div>
 </div>
+<script type="text/javascript" src="query.js"></script>
+<script type="text/javascript" src="profilepic_query.js"></script>
 </body>
 </html>
