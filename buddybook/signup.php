@@ -103,7 +103,7 @@ void 0===c?d&&"get"in d&&null!==(e=d.get(a,b))?e:(e=n.find.attr(a,b),null==e?voi
     <label for="exampleInputEmail2"><span style="font-size:18px;">password</span></label>
     <input type="password" class="form-control" id="exampleInputEmail2" placeholder="password" name="password">
   </div>
-  <button type="submit" name="login" class="btn btn-warning">login</button>
+  <button type="submit" name="login" class="btn btn-warning" id="login">login</button>
 </form>
 
 </div>
@@ -117,11 +117,11 @@ void 0===c?d&&"get"in d&&null!==(e=d.get(a,b))?e:(e=n.find.attr(a,b),null==e?voi
 <?php	
 function display_loginerror()
 {
-	echo'<div class="bg-danger "><strong>please check the credentials..Try again</strong></div>';
+	echo'<div class="bg-danger " id="makeborder"><strong><span style="padding:5px;">please check the credentials..Try again</span></strong></div>';
 }
 function display_invalidaccounterror()
 {
-	echo'<div class="bg-danger" ><strong>NOT A VALID ACCOUNT.......PLEASE SIGNUP.....</strong></div>';
+	echo'<div class="bg-danger" id="makeborder"><strong>NOT A VALID ACCOUNT.......PLEASE SIGNUP.....</strong></div>';
 }			
 	//////////////////
 	if(isset($_POST["login"]))
@@ -309,11 +309,13 @@ function display_yearerror()
 <input type="text" name="year" placeholder="year" class="form-control" >
   <div class="checkbox">
     
-  <button type="submit" name="signup" class="btn btn-success btn-lg">Sign up ! </button>
+  <button type="submit" name="signup" class="btn btn-success btn-lg" id="signup">Sign up ! </button>
 </form>
 
 </div>
 </div>
 </div>
+<script type="text/javascript" src="query.js"></script>
+<script type="text/javascript" src="signup_query.js"></script>
 </body>
 </html>
